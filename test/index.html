@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Too Fine to Be Lowkey 😮‍💨💕</title>
+
+  <!-- HISTATS TRACKING -->
+  <script>
+    var _Hasync = window._Hasync || [];
+
+    _Hasync.push([
+      'Histats.start',
+      '1,5054750,4,4,130,70,00011111'
+    ]);
+
+    _Hasync.push(['Histats.fasi', '1']);
+    _Hasync.push(['Histats.track_hits', '']);
+
+    (function () {
+      var hs = document.createElement('script');
+      hs.type = 'text/javascript';
+      hs.async = true;
+      hs.src = 'https://s10.histats.com/js15_as.js';
+
+      (document.head || document.body).appendChild(hs);
+    })();
+  </script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background: #000;
+      font-family: Arial, sans-serif;
+    }
+
+    .video-page {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100vh;
+      height: 100dvh;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .background {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+    }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 2;
+    }
+
+    .main-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #000;
+      z-index: 3;
+    }
+
+    .top-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 35px;
+      color: #fff;
+      z-index: 5;
+      pointer-events: none;
+    }
+
+    .top-bar span {
+      padding: 10px 20px;
+      border-radius: 25px;
+      background: rgba(0, 0, 0, 0.55);
+      font-size: 16px;
+    }
+
+    .play-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 90px;
+      height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: translate(-50%, -50%);
+      border: none;
+      border-radius: 50%;
+      background: #4fc3f7;
+      cursor: pointer;
+      z-index: 6;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .play-button::after {
+      content: "";
+      width: 0;
+      height: 0;
+      margin-left: 7px;
+      border-top: 19px solid transparent;
+      border-bottom: 19px solid transparent;
+      border-left: 28px solid #fff;
+    }
+
+    .play-button:hover {
+      background: #29b6f6;
+    }
+
+    .play-button.hidden {
+      display: none;
+    }
+
+    .video-status {
+      position: absolute;
+      bottom: 25px;
+      left: 50%;
+      width: 90%;
+      transform: translateX(-50%);
+      color: #fff;
+      font-size: 14px;
+      text-align: center;
+      text-shadow: 0 1px 4px #000;
+      z-index: 8;
+      pointer-events: none;
+    }
+
+    .ad-link {
+      position: absolute;
+      left: 50%;
+      bottom: 55px;
+      transform: translateX(-50%);
+      z-index: 9;
+      padding: 10px 18px;
+      border-radius: 25px;
+      background: rgba(0, 0, 0, 0.75);
+      color: #fff;
+      font-size: 14px;
+      text-decoration: none;
+    }
+
+    .ad-link:hover {
+      background: #333;
+    }
+
+    @media (max-width: 600px) {
+      .top-bar {
+        padding: 16px;
+      }
+
+      .top-bar span {
+        padding: 8px 14px;
+        font-size: 14px;
+      }
+
+      .play-button {
+        width: 72px;
+        height: 72px;
+      }
+
+      .play-button::after {
+        border-top-width: 15px;
+        border-bottom-width: 15px;
+        border-left-width: 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="video-page">
+
+    <!-- BACKGROUND IMAGE -->
+    <img
+      class="background"
+      src="https://cdn.aceimg.com/p4IgCs6de.png"
+      alt=""
+    >
+
+    <!-- DARK OVERLAY -->
+    <div class="overlay"></div>
+
+    <!-- MAIN VIDEO -->
+    <video
+      id="mainVideo"
+      class="main-video"
+      autoplay
+      muted
+      loop
+      playsinline
+      controls
+      preload="auto"
+      poster="https://cdn.aceimg.com/5jMgJooIo.png"
+    >
+      <source
+        src="https://cdn.videy.co/FckB27aV1.mp4"
+        type="video/mp4"
+      >
+
+      Your browser does not support HTML5 video.
+    </video>
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+      <span>Video</span>
+      <span>Watch</span>
+    </div>
+
+    <!-- PLAY BUTTON -->
+    <button
+      id="playButton"
+      class="play-button"
+      type="button"
+      aria-label="Play video"
+    ></button>
+
+    <!-- VIDEO STATUS -->
+    <div
+      id="videoStatus"
+      class="video-status"
+      role="status"
+      aria-live="polite"
+    ></div>
+
+    <!-- OPTIONAL AD LINK -->
+    <a
+      class="ad-link"
+      href="https://uplcm.com/4/11065842"
+      target="_blank"
+      rel="noopener noreferrer sponsored"
+    >
+      Visit link
+    </a>
+
+  </main>
+
+  <!-- VIDEO PLAYER SCRIPT -->
+  <script>
+    (() => {
+      const video = document.getElementById('mainVideo');
+      const playButton = document.getElementById('playButton');
+      const status = document.getElementById('videoStatus');
+
+      function hidePlayButton() {
+        playButton.classList.add('hidden');
+        status.textContent = '';
+      }
+
+      function showPlayButton() {
+        playButton.classList.remove('hidden');
+      }
+
+      async function playVideo() {
+        status.textContent = '';
+
+        try {
+          await video.play();
+          hidePlayButton();
+        } catch (error) {
+          showPlayButton();
+          status.textContent =
+            'Unable to play video. Please try again.';
+        }
+      }
+
+      playButton.addEventListener('click', playVideo);
+
+      video.addEventListener('playing', hidePlayButton);
+      video.addEventListener('pause', showPlayButton);
+
+      video.addEventListener('error', () => {
+        showPlayButton();
+        status.textContent =
+          'Video unavailable. Please check the video URL.';
+      });
+
+      video.play().catch(() => {
+        showPlayButton();
+      });
+    })();
+  </script>
+
+</body>
+</html>
+```
